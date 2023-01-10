@@ -9,5 +9,5 @@ dependencies={
 }
 picture="thumbnail.png"
 name="Xorme - AI / Ante Bellum Compatch"
-supported_version="1.33.3"
+supported_version="1.34.5"
 remote_file_id="2593400056"

@@ -18,7 +18,7 @@
 # fertile_personality
 # well_advised_personality
 # benevolent_personality
-# zealot_personality 
+# zealot_personality
 # pious_personality
 # lawgiver_personality
 # midas_touched_personality
@@ -63,7 +63,7 @@ xorme_ai_personality = {
 		allow = {
 			always = yes
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 10000.0
@@ -74,7 +74,7 @@ xorme_ai_personality = {
 		allow = {
 			always = no
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 0
@@ -85,7 +85,7 @@ xorme_ai_personality = {
 		allow = {
 			always = no
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 0
@@ -130,7 +130,7 @@ xorme_ai_personality = {
 	war_chance_multiplier = 3.25
 	easy_war_chance_multiplier = 2.75
 	enemy_strength_multiplier = 0.8
-	
+
 	underestimate_ae = yes
 	wants_condottieri = yes
 	wants_avoid_debase = yes
@@ -145,7 +145,7 @@ just_personality = {
 			ruler_has_personality = xorme_ai_personality
 			NOT = { ruler_has_personality = cruel_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -158,7 +158,7 @@ just_personality = {
 		allow = {
 			NOT = { heir_has_personality = cruel_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -166,7 +166,7 @@ just_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = cruel_personality }
@@ -182,7 +182,7 @@ just_personality = {
 
 	easy_war_chance_multiplier = 0.6
 	fair_fights = yes
-	
+
 	global_unrest = -2
 	nation_designer_cost = 2
 } #1 less bad
@@ -213,7 +213,7 @@ righteous_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		chance = {
 			modifier = {
@@ -222,7 +222,7 @@ righteous_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 		OR = {
 			government = republic
@@ -232,13 +232,13 @@ righteous_personality = {
 		NOT = { government = tribal }
 		NOT = { government = native }
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	easy_war_chance_multiplier = 0.75
-	
+
 	legitimacy = 1
 	republican_tradition = 0.5
 
@@ -265,7 +265,7 @@ tolerant_personality = {
 			NOT = { heir_has_personality = pious_personality }
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = zealot_personality }
@@ -273,17 +273,17 @@ tolerant_personality = {
 			NOT = { consort_has_personality = pious_personality }
 		}
 	}
-	
+
 	allow = {
 		OR = {
 			any_owned_province = { has_owner_religion = no }
 			any_neighbor_country = { NOT = { religion = ROOT } }
 		}
-		NOT = { 
+		NOT = {
 			has_idea_group = religious_ideas
 		}
 	}
-	
+
 	chance = {
 		modifier = {
 			factor = 1
@@ -294,10 +294,10 @@ tolerant_personality = {
 			has_idea_group = humanist_ideas
 		}
 	}
-	
+
 	heretic_ally_acceptance = 10
 	heathen_ally_acceptance = 20
-	
+
 	tolerance_heretic = 1
 	tolerance_heathen = 1
 	wants_ecumenical_council = yes
@@ -320,7 +320,7 @@ kind_hearted_personality = {
 			NOT = { heir_has_personality = malevolent_personality }
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = cruel_personality }
@@ -328,15 +328,15 @@ kind_hearted_personality = {
 		}
 	}
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 	}
-	
+
 	gift_chance = 65
 	alliance_acceptance = 10
-	
+
 	war_exhaustion = -0.05
 	nation_designer_cost = 5
 } # 1 better
@@ -350,7 +350,7 @@ free_thinker_personality = {
 			NOT = { ruler_has_personality = zealot_personality }
 			NOT = { ruler_has_personality = tolerant_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 			factor = 1
@@ -373,7 +373,7 @@ free_thinker_personality = {
 			NOT = { heir_has_personality = zealot_personality }
 			NOT = { heir_has_personality = tolerant_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 			factor = 1
@@ -389,7 +389,7 @@ free_thinker_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = careful_personality }
@@ -413,21 +413,21 @@ free_thinker_personality = {
 		}
 	}
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 	}
-	
+
 	knowledge_sharing = yes
-	
+
 	idea_cost = -0.05
 	nation_designer_cost = 2
 } #1 easier event, 1 better event
 
 well_connected_personality = {
 	#personality_events.16
-	
+
 	ruler_allow = {
 		allow = {
 			ruler_has_personality = xorme_ai_personality
@@ -463,18 +463,18 @@ well_connected_personality = {
 			}
 		}
 	}
-	
+
 	allow = { }
-	
+
 	chance = {
 		modifier = {
 			factor = 1
 			num_of_royal_marriages = 5
 		}
 	}
-	
+
 	other_ai_help_us_multiplier = 2
-	
+
 	advisor_cost = -0.2
 	nation_designer_cost = 2
 } #1 better event
@@ -485,7 +485,7 @@ calm_personality = {
 		allow = {
 			ruler_has_personality = xorme_ai_personality
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -494,7 +494,7 @@ calm_personality = {
 		}
 	}
 	heir_allow = {
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -504,16 +504,16 @@ calm_personality = {
 	}
 	consort_allow = {
 	}
-	
+
 	allow = {
 	}
-	
+
 	chance = {
 	}
-	
+
 	war_chance_multiplier = 0.6
 	easy_war_chance_multiplier = 0.75
-	
+
 	stability_cost_modifier = -0.10
 	nation_designer_cost = 2
 } #1 easier event
@@ -527,7 +527,7 @@ careful_personality = {
 			NOT = { ruler_has_personality = free_thinker_personality }
 			NOT = { ruler_has_personality = bold_fighter_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -541,7 +541,7 @@ careful_personality = {
 			NOT = { heir_has_personality = free_thinker_personality }
 			NOT = { heir_has_personality = bold_fighter_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -563,21 +563,21 @@ careful_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
-		
+
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	war_chance_multiplier = 0.5
 	enemy_strength_multiplier = 1.2
-	
+
 	ae_impact = -0.10
 	nation_designer_cost = 5
-} #modifies scandal at court, 
+} #modifies scandal at court,
 
 secretive_personality = {
 	#personality_events.19
@@ -586,7 +586,7 @@ secretive_personality = {
 			ruler_has_personality = xorme_ai_personality
 			NOT = { ruler_has_personality = loose_lips_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -598,7 +598,7 @@ secretive_personality = {
 		allow = {
 			NOT = { heir_has_personality = loose_lips_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -618,17 +618,17 @@ secretive_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
-		
+
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	wants_condottieri = yes
-	
+
 	global_spy_defence = 0.2
 	nation_designer_cost = 2
 }
@@ -641,7 +641,7 @@ intricate_web_weaver_personality = {
 			NOT = { ruler_has_personality = loose_lips_personality }
 			ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -654,7 +654,7 @@ intricate_web_weaver_personality = {
 			NOT = { heir_has_personality = loose_lips_personality }
 			heir_ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 			factor = 1
@@ -675,7 +675,7 @@ intricate_web_weaver_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 		OR = {
 			AND = {
@@ -687,12 +687,12 @@ intricate_web_weaver_personality = {
 			}
 		}
 	}
-	
+
 	chance = {
 	}
-	
+
 	wants_condottieri = yes
-	
+
 	spy_offence = 0.3
 	nation_designer_cost = 2
 } #1 easier event
@@ -705,7 +705,7 @@ fertile_personality = {
 			NOT = { ruler_has_personality = infertile_personality }
 			NOT = { ruler_age = 35 }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -719,7 +719,7 @@ fertile_personality = {
 			NOT = { heir_has_personality = infertile_personality }
 			NOT = { heir_age = 35 }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -727,7 +727,7 @@ fertile_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = infertile_personality }
@@ -747,12 +747,12 @@ fertile_personality = {
 		NOT = { has_government_attribute = states_general_mechanic }
 		has_government_attribute = heir
 	}
-	
+
 	chance = {
 	}
-	
+
 	royal_marriage_acceptance = 20
-	
+
 	heir_chance = 0.5
 	nation_designer_cost = 2
 }
@@ -780,7 +780,7 @@ well_advised_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		chance = {
 			modifier = {
@@ -789,14 +789,14 @@ well_advised_personality = {
 			}
 		}
 	}
-	
+
 	allow = { }
-	
+
 	chance = {
 	}
-	
+
 	war_chance_multiplier = 0.6
-	
+
 	advisor_pool = 1
 	nation_designer_cost = 2
 } #2 better events
@@ -809,7 +809,7 @@ benevolent_personality = {
 			NOT = { ruler_has_personality = malevolent_personality }
 			DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -823,7 +823,7 @@ benevolent_personality = {
 			NOT = { heir_has_personality = malevolent_personality }
 			heir_DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 			factor = 1
@@ -831,7 +831,7 @@ benevolent_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = malevolent_personality }
@@ -845,25 +845,25 @@ benevolent_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 		modifier = {
 			factor = 1
 			vassal = 2
 		}
 	}
-	
+
 	gift_chance = 25
-	
+
 	reduced_liberty_desire = 5
 	nation_designer_cost = 2
 }
 
-zealot_personality = { 
+zealot_personality = {
 	#personality_events.26
 	ruler_allow = {
 		allow = {
@@ -883,7 +883,7 @@ zealot_personality = {
 			NOT = { heir_has_personality = sinner_personality }
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = tolerant_personality }
@@ -892,11 +892,11 @@ zealot_personality = {
 			NOT = { consort_has_personality = sinner_personality }
 		}
 	}
-	
+
 	allow = {
 		NOT = { has_idea_group = humanist_ideas }
 	}
-	
+
 	chance = {
 		modifier = {
 			factor = 0.5
@@ -918,15 +918,15 @@ zealot_personality = {
 			factor = 1
 			is_defender_of_faith = yes
 		}
-		
+
 	}
-	
+
 	different_religion_war_multiplier = 2
 	heretic_ally_acceptance = -1000
 	heathen_ally_acceptance = -1000
 	wants_heathen_land = yes
 	wants_heretic_land = yes
-	
+
 	global_missionary_strength = 0.01
 	nation_designer_cost = 2
 }#1 better event, 1 less bad
@@ -952,18 +952,18 @@ pious_personality = {
 	allow = {
 		government = theocracy
 	}
-	
+
 	chance = {
 		modifier = {
 			factor = 1
 			dominant_religion = ROOT
 		}
 	}
-	
+
 	different_religion_war_multiplier = 1.5
 	wants_excommunicate = yes
 	heretic_ally_acceptance = -30
-	
+
 	devotion = 1
 	wants_ecumenical_council = yes
 
@@ -978,7 +978,7 @@ lawgiver_personality = {
 			ruler_has_personality = xorme_ai_personality
 			ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -991,7 +991,7 @@ lawgiver_personality = {
 		allow = {
 			heir_ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -999,7 +999,7 @@ lawgiver_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			consort_ADM = 3
@@ -1012,17 +1012,17 @@ lawgiver_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
-		
+
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	custom_ai_explanation = "AI_RULER_PICK_IDEA_GROUPS"
-	
+
 	global_autonomy = -0.05
 	nation_designer_cost = 5
 } #2 easier events
@@ -1035,7 +1035,7 @@ midas_touched_personality = {
 			NOT = { ruler_has_personality = greedy_personality }
 			ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1053,7 +1053,7 @@ midas_touched_personality = {
 			NOT = { heir_has_personality = greedy_personality }
 			heir_ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1065,7 +1065,7 @@ midas_touched_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = greedy_personality }
@@ -1083,18 +1083,18 @@ midas_touched_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	wants_gold = yes
 	custom_ai_explanation = "AI_RULER_PICK_IDEA_GROUPS"
-	
-	global_tax_modifier = 0.1 
+
+	global_tax_modifier = 0.1
 	nation_designer_cost = 2
 } #Opens Exceptional Year, 1 better event
 
@@ -1107,7 +1107,7 @@ incorruptible_personality = {
 			NOT = { has_ruler_modifier = borgia_pope }
 			ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1121,7 +1121,7 @@ incorruptible_personality = {
 			NOT = { heir_has_personality = embezzler_personality }
 			heir_ADM = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1129,7 +1129,7 @@ incorruptible_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = embezzler_personality }
@@ -1143,18 +1143,18 @@ incorruptible_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
-		
+
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	gift_chance = -50
 	wants_avoid_debase = yes
-	
+
 	yearly_corruption = -0.05
 	nation_designer_cost = 2
 } #1 better, 1 less bad
@@ -1166,7 +1166,7 @@ architectural_visionary_personality = {
 			ruler_has_personality = xorme_ai_personality
 			NOT = { ruler_has_personality = obsessive_perfectionist_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1179,7 +1179,7 @@ architectural_visionary_personality = {
 		allow = {
 			NOT = { heir_has_personality = obsessive_perfectionist_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1187,7 +1187,7 @@ architectural_visionary_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = obsessive_perfectionist_personality }
@@ -1200,15 +1200,15 @@ architectural_visionary_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 	}
-	
+
 	chance = {
 	}
-	
+
 	building_budget_multiplier = 1.8
-	
+
 	build_cost = -0.1
 	nation_designer_cost = 2
 }
@@ -1247,7 +1247,7 @@ scholar_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		chance = {
 			modifier = {
@@ -1256,15 +1256,15 @@ scholar_personality = {
 			}
 		}
 	}
-	
+
 	allow = { }
-	
+
 	chance = { }
-	
+
 	custom_ai_explanation = "AI_RULER_SPEND_UNLOCK_INSTIT"
-	
+
 	knowledge_sharing = yes
-	
+
 	technology_cost = -0.05
 	nation_designer_cost = 5
 } #comet chance less likely and makes it good (1 easier event), 2 easier events
@@ -1275,7 +1275,7 @@ entrepreneur_personality = {
 			ruler_has_personality = xorme_ai_personality
 			NOT = { ruler_has_personality = drunkard_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1288,7 +1288,7 @@ entrepreneur_personality = {
 		allow = {
 			NOT = { heir_has_personality = drunkard_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1296,7 +1296,7 @@ entrepreneur_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = drunkard_personality }
@@ -1309,20 +1309,20 @@ entrepreneur_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 		modifier = {
 			factor = 1
 			has_government_attribute = is_merchant_republic
 		}
 	}
-	
+
 	building_budget_multiplier = 1.5
-	
+
 	trade_efficiency = 0.1
 	nation_designer_cost = 2
 } #Opens Exceptional Year, 1 better event, 3 less bad
@@ -1349,7 +1349,7 @@ industrious_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		chance = {
 			modifier = {
@@ -1358,19 +1358,19 @@ industrious_personality = {
 			}
 		}
 	}
-	
+
 	allow = { }
-	
+
 	chance = {
 		modifier = {
 			factor = 1
 			has_government_attribute = is_merchant_republic
 		}
 	}
-	
+
 	building_budget_multiplier = 1.2
 	custom_ai_explanation = "AI_RULER_PICK_IDEA_GROUPS"
-	
+
 	global_trade_goods_size_modifier = 0.1
 	nation_designer_cost = 2
 } #Opens Exceptional Year, 1 better event
@@ -1397,7 +1397,7 @@ expansionist_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		chance = {
 			modifier = {
@@ -1406,17 +1406,17 @@ expansionist_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 		OR = {
-			num_of_colonists = 1 
+			num_of_colonists = 1
 			AND = {
 				has_game_started = no
 				is_playing_custom_nation = yes
 			}
 		}
 	}
-	
+
 	chance = {
 		modifier = {
 			factor = 1
@@ -1442,16 +1442,16 @@ expansionist_personality = {
 			has_idea_group = expansion_ideas
 		}
 	}
-	
+
 	war_priority = {
 		modifier = {
 			factor = 2
 			primitives = yes
 		}
 	}
-	
+
 	wants_colonies = yes
-	
+
 	global_colonial_growth = 15
 	nation_designer_cost = 2
 } #Better Event
@@ -1464,7 +1464,7 @@ charismatic_negotiator_personality = {
 			NOT = { ruler_has_personality = babbling_buffoon_personality }
 			DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -1482,7 +1482,7 @@ charismatic_negotiator_personality = {
 			NOT = { heir_has_personality = babbling_buffoon_personality }
 			heir_DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -1494,7 +1494,7 @@ charismatic_negotiator_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = babbling_buffoon_personality }
@@ -1510,15 +1510,15 @@ charismatic_negotiator_personality = {
 	}
 
 	allow = {
-		
-		
+
+
 	}
-	
+
 	chance = {
 	}
-	
+
 	other_ai_peace_term_bonus = 10
-	
+
 	diplomatic_reputation = 1
 	nation_designer_cost = 2
 } #1 easier event, 2 better events
@@ -1531,7 +1531,7 @@ silver_tongue_personality = {
 			NOT = { ruler_has_personality = naive_personality }
 			DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -1550,7 +1550,7 @@ silver_tongue_personality = {
 			NOT = { heir_has_personality = naive_personality }
 			heir_DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -1562,7 +1562,7 @@ silver_tongue_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = babbling_buffoon_personality }
@@ -1580,13 +1580,13 @@ silver_tongue_personality = {
 
 	allow = {
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	other_ai_war_chance_multiplier = 0.5
-	
+
 	improve_relation_modifier = 0.2
 	nation_designer_cost = 2
 } #2 easier events, 3 better events
@@ -1598,7 +1598,7 @@ conqueror_personality = {
 			ruler_has_personality = xorme_ai_personality
 			MIL = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1615,7 +1615,7 @@ conqueror_personality = {
 		allow = {
 			heir_MIL = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1627,7 +1627,7 @@ conqueror_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			consort_MIL = 3
@@ -1642,11 +1642,11 @@ conqueror_personality = {
 	}
 
 	allow = {
-		
+
 	}
 	years_of_nationalism = -5
 	nation_designer_cost = 2
-	
+
 	easy_war_chance_multiplier = 3.0
 	war_chance_multiplier = 2.75
 	building_budget_multiplier = 0.2
@@ -1658,9 +1658,9 @@ conqueror_personality = {
 	wants_betray_allies = yes
 
 	chance = {
-		
+
 	}
-	
+
 }
 
 tactical_genius_personality = {
@@ -1669,7 +1669,7 @@ tactical_genius_personality = {
 			ruler_has_personality = xorme_ai_personality
 			MIL = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1686,7 +1686,7 @@ tactical_genius_personality = {
 		allow = {
 			heir_MIL = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1698,7 +1698,7 @@ tactical_genius_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			consort_MIL = 3
@@ -1714,7 +1714,7 @@ tactical_genius_personality = {
 
 	allow = {
 	}
-	
+
 	chance = {
 	}
 	war_chance_multiplier = 1.2
@@ -1759,7 +1759,7 @@ bold_fighter_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = careful_personality }
@@ -1774,13 +1774,13 @@ bold_fighter_personality = {
 	}
 
 	allow = { }
-	
+
 	chance = {
 	}
 	war_chance_multiplier = 1.2
 	easy_war_chance_multiplier = 1.3
 	enemy_strength_multiplier = 0.9
-	
+
 	leader_land_shock = 1
 	nation_designer_cost = 2
 } #
@@ -1817,7 +1817,7 @@ strict_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		chance = {
 			modifier = {
@@ -1828,7 +1828,7 @@ strict_personality = {
 	}
 
 	allow = { }
-	
+
 	chance = {
 	}
 	war_chance_multiplier = 1.2
@@ -1837,7 +1837,7 @@ strict_personality = {
 	wants_avoid_debase = yes
 	wants_avoid_loans = yes
 	wants_ecumenical_council = yes
-	
+
 	discipline = 0.05
 
 	nation_designer_cost = 5
@@ -1850,7 +1850,7 @@ inspiring_leader_personality = {
 			MIL = 3
 			NOT = { ruler_has_personality = craven_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1872,7 +1872,7 @@ inspiring_leader_personality = {
 			heir_MIL = 3
 			NOT = { heir_has_personality = craven_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1884,7 +1884,7 @@ inspiring_leader_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			consort_MIL = 3
@@ -1901,7 +1901,7 @@ inspiring_leader_personality = {
 
 	allow = {
 	}
-	
+
 	chance = {
 	}
 	war_chance_multiplier = 1.2
@@ -1915,7 +1915,7 @@ martial_educator_personality = {
 			ruler_has_personality = xorme_ai_personality
 			MIL = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1928,7 +1928,7 @@ martial_educator_personality = {
 		allow = {
 			heir_MIL = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -1936,7 +1936,7 @@ martial_educator_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			consort_MIL = 3
@@ -1952,14 +1952,14 @@ martial_educator_personality = {
 
 	allow = {
 	}
-	
+
 	chance = {
 	}
 	war_chance_multiplier = 1.2
 	easy_war_chance_multiplier = 1.4
 	wants_betray_allies = yes
 	custom_ai_explanation = "AI_RULER_PICK_IDEA_GROUPS"
-	
+
 	army_tradition_decay = -0.01
 	nation_designer_cost = 2
 } #1 easier event, 2 better events
@@ -1984,7 +1984,7 @@ navigator_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		chance = {
 			modifier = {
@@ -2015,13 +2015,13 @@ navigator_personality = {
 			has_reform = native_basic_reform
 		}
 	}
-	
+
 	chance = {
 	}
-	
+
 	custom_ai_explanation = "AI_RULER_PICK_IDEA_GROUPS"
 	wants_explorers = yes
-	
+
 	ship_durability = 0.1
 	nation_designer_cost = 2
 } #1 better event
@@ -2032,7 +2032,7 @@ fierce_negotiator_personality = {
 			ruler_has_personality = xorme_ai_personality
 			DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -2045,7 +2045,7 @@ fierce_negotiator_personality = {
 		allow = {
 			heir_DIP = 3
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -2053,7 +2053,7 @@ fierce_negotiator_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			consort_DIP = 3
@@ -2068,15 +2068,15 @@ fierce_negotiator_personality = {
 	}
 
 	allow = {
-		
+
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	peace_desire = -10
-	
+
 	merc_maintenance_modifier = -0.25
 	nation_designer_cost = 2
 } #1 easier event
@@ -2093,7 +2093,7 @@ babbling_buffoon_personality = {
 			NOT = { ruler_has_personality = silver_tongue_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2120,7 +2120,7 @@ babbling_buffoon_personality = {
 			NOT = { heir_has_personality = charismatic_negotiator_personality }
 			NOT = { heir_has_personality = silver_tongue_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2141,7 +2141,7 @@ babbling_buffoon_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = charismatic_negotiator_personality }
@@ -2170,17 +2170,17 @@ babbling_buffoon_personality = {
 	}
 
 	allow = {
-		
+
 	}
 	diplomatic_reputation = -1
 	nation_designer_cost = -2
-	
+
 	wants_betray_allies = yes
 	random_insults = yes
 	wants_disclose_attack = yes
-	
+
 	chance = {
-		
+
 	}
 } #Scandal at court more likely
 
@@ -2191,7 +2191,7 @@ embezzler_personality = {
 			NOT = { ruler_has_personality = incorruptible_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2217,7 +2217,7 @@ embezzler_personality = {
 		allow = {
 			NOT = { heir_has_personality = incorruptible_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2238,7 +2238,7 @@ embezzler_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = incorruptible_personality }
@@ -2266,17 +2266,17 @@ embezzler_personality = {
 	}
 
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 	}
-	
+
 	wants_debase = yes
 	wants_to_appoint_cardinals_in_his_own_land = yes
 	#wants_sell_ships = yes
 	wants_sell_provinces = yes
-	
+
 	yearly_corruption = 0.05
 	nation_designer_cost = -2
 } #1 easier event, 4 better event, 1 less bad
@@ -2287,7 +2287,7 @@ infertile_personality = {
 			NOT = { ruler_has_personality = fertile_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -2317,7 +2317,7 @@ infertile_personality = {
 		allow = {
 			NOT = { heir_has_personality = fertile_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2342,7 +2342,7 @@ infertile_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = fertile_personality }
@@ -2379,13 +2379,13 @@ infertile_personality = {
 		NOT = { has_government_attribute = states_general_mechanic }
 		has_government_attribute = heir
 	}
-	
+
 	chance = {
-		
+
 	}
-	
+
 	royal_marriage_acceptance = -20
-	
+
 	heir_chance = -0.25
 	nation_designer_cost = -2
 }
@@ -2398,7 +2398,7 @@ drunkard_personality = {
 			NOT = { ruler_has_personality = zealot_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2426,7 +2426,7 @@ drunkard_personality = {
 			NOT = { heir_has_personality = entrepreneur_personality }
 			NOT = { heir_has_personality = zealot_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2447,7 +2447,7 @@ drunkard_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = pious_personality }
@@ -2477,12 +2477,12 @@ drunkard_personality = {
 	}
 
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 	}
-	
+
 	#random_troop_moves = yes Commenting out since often indistinguishable from a bug.
 	wants_loans = yes
 	wants_gold = yes
@@ -2500,7 +2500,7 @@ sinner_personality = {
 			NOT = { ruler_has_personality = zealot_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2527,7 +2527,7 @@ sinner_personality = {
 			NOT = { heir_has_personality = pious_personality }
 			NOT = { heir_has_personality = zealot_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2548,7 +2548,7 @@ sinner_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = pious_personality }
@@ -2575,7 +2575,7 @@ sinner_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 		OR = {
 			religion_group = christian
@@ -2583,14 +2583,14 @@ sinner_personality = {
 			religion_group = jewish_group
 		}
 	}
-	
+
 	chance = {
 	}
-	
+
 	different_religion_war_multiplier = 0.8
 	razing = yes
 	wants_to_appoint_cardinals_in_his_own_land = yes
-	
+
 	tolerance_own = -2
 	nation_designer_cost = -2
 } #1 better
@@ -2601,7 +2601,7 @@ greedy_personality = {
 			NOT = { ruler_has_personality = midas_touched_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2627,7 +2627,7 @@ greedy_personality = {
 		allow = {
 			NOT = { heir_has_personality = midas_touched_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2648,7 +2648,7 @@ greedy_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = midas_touched_personality }
@@ -2674,19 +2674,19 @@ greedy_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 	}
-	
+
 	chance = {
 	}
-	
+
 	wants_gold = yes
 	wants_to_appoint_cardinals_in_his_own_land = yes
 	wants_betray_allies = yes
 
 	gift_chance = -100
-	
+
 	war_priority = {
 		modifier = {
 			factor = 1.1
@@ -2717,7 +2717,7 @@ greedy_personality = {
 			gold_income_percentage = 0.2
 		}
 	}
-	
+
 	trade_league_acceptance = -10
 	global_tax_modifier = -0.1
 	nation_designer_cost = -2
@@ -2731,7 +2731,7 @@ cruel_personality = {
 			NOT = { ruler_has_personality = kind_hearted_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2758,7 +2758,7 @@ cruel_personality = {
 			NOT = { heir_has_personality = just_personality }
 			NOT = { heir_has_personality = kind_hearted_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2779,7 +2779,7 @@ cruel_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = just_personality }
@@ -2808,7 +2808,7 @@ cruel_personality = {
 	}
 	razing = yes
 	lower_autonomy = yes
-	
+
 	global_unrest = 2
 	nation_designer_cost = -2
 } #4 less bad
@@ -2820,7 +2820,7 @@ naive_personality = {
 			NOT = { ruler_has_personality = careful_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -2851,7 +2851,7 @@ naive_personality = {
 			NOT = { heir_has_personality = silver_tongue_personality }
 			NOT = { heir_has_personality = careful_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 1
@@ -2876,7 +2876,7 @@ naive_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = silver_tongue_personality }
@@ -2909,16 +2909,16 @@ naive_personality = {
 	}
 
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 	}
-	
+
 	underestimate_ae = yes
 	fair_fights = yes
 	gift_chance = 90
-	
+
 	improve_relation_modifier = -0.2
 	nation_designer_cost = -2
 } #1 Less bad event
@@ -2931,7 +2931,7 @@ craven_personality = {
 			NOT = { ruler_has_personality = bold_fighter_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 0
@@ -2966,7 +2966,7 @@ craven_personality = {
 			NOT = { heir_has_personality = inspiring_leader_personality }
 			NOT = { heir_has_personality = bold_fighter_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -2991,7 +2991,7 @@ craven_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = inspiring_leader_personality }
@@ -3018,16 +3018,16 @@ craven_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 	}
-	
+
 	chance = {
-		
+
 	}
 	wants_betray_allies = yes
 	enemy_strength_multiplier = 1.25
-	
+
 	land_morale = -0.05
 	nation_designer_cost = -2
 }
@@ -3039,7 +3039,7 @@ loose_lips_personality = {
 			NOT = { ruler_has_personality = secretive_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -3066,7 +3066,7 @@ loose_lips_personality = {
 			NOT = { heir_has_personality = intricate_web_weaver_personality }
 			NOT = { heir_has_personality = secretive_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -3087,7 +3087,7 @@ loose_lips_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = intricate_web_weaver_personality }
@@ -3115,14 +3115,14 @@ loose_lips_personality = {
 		}
 	}
 
-	allow = {		
+	allow = {
 	}
-	
+
 	chance = {
 	}
-	
+
 	wants_disclose_attack = yes
-	
+
 	global_spy_defence = -0.2
 	nation_designer_cost = -2
 }
@@ -3133,7 +3133,7 @@ obsessive_perfectionist_personality = {
 			NOT = { ruler_has_personality = architectural_visionary_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -3159,7 +3159,7 @@ obsessive_perfectionist_personality = {
 		allow = {
 			NOT = { heir_has_personality = architectural_visionary_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -3180,7 +3180,7 @@ obsessive_perfectionist_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			consort_has_personality = xorme_ai_personality
@@ -3207,15 +3207,15 @@ obsessive_perfectionist_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
 	}
-	
+
 	chance = {
 	}
-	
+
 	wants_avoid_ugly_borders = yes
-	
+
 	build_cost = 0.1
 	nation_designer_cost = -2
 } #1 better, 1 less bad
@@ -3227,7 +3227,7 @@ malevolent_personality = {
 			NOT = { ruler_has_personality = kind_hearted_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -3254,7 +3254,7 @@ malevolent_personality = {
 			NOT = { heir_has_personality = benevolent_personality }
 			NOT = { heir_has_personality = kind_hearted_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.5
@@ -3275,7 +3275,7 @@ malevolent_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = benevolent_personality }
@@ -3302,25 +3302,25 @@ malevolent_personality = {
 			}
 		}
 	}
-	
+
 	allow = {
-		
+
 	}
-	
+
 	chance = {
 	}
-	
+
 	wants_threaten_war = yes
 	wants_disclose_attack = yes
 	send_warning_desire = 50
-	
+
 	reduced_liberty_desire = -5
 	nation_designer_cost = -2
 } #1 less bad
 
 # Immortal, for games converted from CKII, but also available in Nation Designer.
 immortal_personality = {
-	
+
 	ruler_allow = {
 		allow = {
 			ruler_has_personality = xorme_ai_personality
@@ -3333,9 +3333,9 @@ immortal_personality = {
 	consort_allow = {
 	}
 
-	allow = {	
+	allow = {
 	}
-	
+
 	chance = {
 		modifier = {
 			factor = -2
@@ -3344,7 +3344,7 @@ immortal_personality = {
 
 	immortal = 1 # dummy modifier only used to get the right icon
 	nation_designer_cost = 800
-	static = yes # Makes nation_designer_cost not scale with age etc. 
+	static = yes # Makes nation_designer_cost not scale with age etc.
 }
 
 
@@ -3356,7 +3356,7 @@ humane_personality = {
 			ruler_has_personality = xorme_ai_personality
 			NOT = { ruler_has_personality = petty_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 0.75
@@ -3377,7 +3377,7 @@ humane_personality = {
 		allow = {
 			NOT = { heir_has_personality = petty_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = 0.75
@@ -3393,7 +3393,7 @@ humane_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = petty_personality }
@@ -3449,7 +3449,7 @@ petty_personality = {
 			NOT = { ruler_has_personality = humane_personality }
 			NOT = { mission_completed = byzantium_nomos }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.33
@@ -3475,7 +3475,7 @@ petty_personality = {
 		allow = {
 			NOT = { heir_has_personality = humane_personality }
 		}
-	
+
 		chance = {
 			modifier = {
 				factor = -0.33
@@ -3496,7 +3496,7 @@ petty_personality = {
 			}
 		}
 	}
-	
+
 	consort_allow = {
 		allow = {
 			NOT = { consort_has_personality = humane_personality }
@@ -3550,3 +3550,74 @@ petty_personality = {
 }
 
 
+reformist_personality = {
+	ruler_allow = {
+		allow = {
+			ruler_has_personality = xorme_ai_personality
+			ADM = 4
+		}
+
+		chance = {
+			modifier = {
+				factor = 1
+				ADM = 6
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			heir_ADM = 4
+		}
+
+		chance = {
+			modifier = {
+				factor = 1
+				heir_ADM = 6
+			}
+		}
+	}
+
+	consort_allow = {
+		allow = {
+			consort_ADM = 4
+		}
+
+		chance = {
+			modifier = {
+				factor = 1
+				consort_ADM = 6
+			}
+		}
+	}
+
+	allow = { }
+
+	chance = { }
+
+	custom_ai_explanation = "AI_RULER_PICK_IDEA_GROUPS"
+
+	reform_progress_growth = 0.25
+	nation_designer_cost = 5
+} #3 easier events
+
+
+legendary_pirate_personality = {
+	allow = {
+		has_government_attribute = is_pirate_republic_reform
+	}
+
+	chance = {
+		modifier = {
+			factor = -2
+		}
+	}
+	privateer_efficiency = 0.25
+	leader_naval_shock = 2
+	navy_tradition_decay = -0.01
+
+	random_insults = yes
+	different_religion_war_multiplier = 0.8
+	razing = yes
+	nation_designer_cost = 10
+}

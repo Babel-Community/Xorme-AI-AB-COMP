@@ -88,12 +88,33 @@ workshop = {
 			type = production
 			value = 1
 		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_2_AB
+				}
+			}
+			add_base_production = 1
+		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
 			building = workshop
 			type = production
 			value = 1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_2_AB
+				}
+				THIS = {
+					NOT = {
+						nationalism = 0
+					}
+				}
+			}
+			add_base_production = -1
 		}
 	}
 	on_obsolete = {
@@ -181,69 +202,73 @@ temple = {
 		local_missionary_strength = 0.01
 	}
 	on_built = {
-		if = {
-			limit = {
-				FROM = {
-					OR = {
-						religion = buddhism
-						religion = mahayana
-						religion = vajrayana
-					}
-					has_estate_privilege = estate_church_karma_temples
-				}
-			}
-			FROM = {
-				add_karma = 3
-			}
-		}
-		if = {
-			limit = {
-				FROM = {
-					religion = catholic
-					has_estate_privilege = estate_church_influence_temples
-				}
-			}
-			FROM = {
-				add_papal_influence = 3
-			}
-		}
+		on_province_tax_building_built_estate_privileges_effect = yes
 		add_development_from_building = {
 			building = temple
 			type = tax
 			value = 1
 		}
-	}
-	on_destroyed = {
+		if = {
+			limit = {
+				FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+			}
+			FROM = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 2
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = { has_government_attribute = temples_modifier }
+			}
+			add_province_modifier = {
+				name = gov_expanded_temple_rights_mod
+				duration = -1
+			}
+		}
 		if = {
 			limit = {
 				FROM = {
 					OR = {
-						religion = buddhism
-						religion = mahayana
-						religion = vajrayana
+						mission_completed = norway_mead
+						mission_completed = dan_mead_halls
 					}
-					has_estate_privilege = estate_church_karma_temples
 				}
 			}
-			FROM = {
-				add_karma = -3
-			}
+			add_base_production = 1
 		}
-		if = {
-			limit = {
-				FROM = {
-					religion = catholic
-					has_estate_privilege = estate_church_influence_temples
-				}
-			}
-			FROM = {
-				add_papal_influence = -3
-			}
-		}
+	}
+	on_destroyed = {
+		on_province_tax_building_destroyed_estate_privileges_effect = yes
 		remove_development_from_building = {
 			building = temple
 			type = tax
 			value = 1
+		}
+		if = {
+			limit = {
+				FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+			}
+			FROM = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = -2
+				}
+			}
+		}
+		remove_province_modifier = gov_expanded_temple_rights_mod
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						mission_completed = norway_mead
+						mission_completed = dan_mead_halls
+					}
+				}
+			}
+			add_base_production = -1
 		}
 	}
 	on_obsolete = {
@@ -452,6 +477,10 @@ shipyard = {
 			type = production
 			value = 1
 		}
+		if = {
+			limit = { has_province_modifier = sca_swe_danish_shipyard }
+			remove_province_modifier = sca_swe_danish_shipyard
+		}
 	}
 	on_obsolete = {
 	}
@@ -523,7 +552,7 @@ shipyard = {
 fort_15th = {
 	cost = 200
 	time = 30
-	
+
 	build_trigger = {
 		if = {
 			limit = { FROM = { ai = yes } }
@@ -544,9 +573,75 @@ fort_15th = {
 	}
 
 	on_built = {
+		if = {
+			limit = {
+				FROM = { NOT = { mil_tech = 14 } has_government_attribute = on_fort_built_nobles_loyalty }
+			}
+			FROM = {
+				if = {
+					limit = {
+						has_estate = estate_nobles
+					}
+					add_estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_maratha
+					}
+					add_estate_loyalty = {
+						estate = estate_maratha
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_rajput
+					}
+					add_estate_loyalty = {
+						estate = estate_rajput
+						loyalty = 5
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = 1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = 1
+		}
 	}
 
 	on_destroyed = {
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = -1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = -1
+		}
 		if = {
 			limit = {
 				FROM = {
@@ -560,7 +655,7 @@ fort_15th = {
 	influencing_fort = yes
 
 	ai_will_do = {
-		factor = 0.1
+		factor = 0.2
 	}
 }
 
@@ -593,12 +688,21 @@ courthouse = {
 		local_state_maintenance_modifier = -0.25
 		local_autonomy = -0.1
 		local_governing_cost = -0.25
+		allowed_num_of_buildings = 1
 	}
 	on_built = {
 		add_development_from_building = {
 			building = courthouse
 			type = tax
 			value = 1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_1_AB
+				}
+			}
+			add_nationalism = -2
 		}
 	}
 	on_destroyed = {
@@ -607,11 +711,24 @@ courthouse = {
 			type = tax
 			value = 1
 		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_1_AB
+				}
+				THIS = {
+					NOT = {
+						nationalism = 0
+					}
+				}
+			}
+			add_nationalism = 2
+		}
 	}
 	on_obsolete = {
 	}
 	ai_will_do = {
-		factor = 7.5
+		factor = 15
 		modifier = {
 			factor = 0
 			FROM = { num_of_loans = 1 }
@@ -675,7 +792,7 @@ dock = {
 	modifier = {
 		local_sailors_modifier = 0.5
 	}
-	
+
 	on_built = {
 		if = {
 			limit = {
@@ -693,7 +810,7 @@ dock = {
 			value = 1
 		}
 	}
-	
+
 	on_destroyed = {
 		if = {
 			limit = {
@@ -797,7 +914,7 @@ regimental_camp = {
 		}
 		#BUILDINGS
 		modifier = {
-			factor = 10.0
+			factor = 100.0
 			xorme_has_production_buildings_trigger = yes
 		}
 		modifier = {
@@ -837,12 +954,77 @@ fort_16th = {
 	modifier = {
 		fort_level = 4
 	}
-	
-	on_built = {
 
+	on_built = {
+		if = {
+			limit = {
+				FROM = { NOT = { mil_tech = 19 } has_government_attribute = on_fort_built_nobles_loyalty }
+			}
+			FROM = {
+				if = {
+					limit = {
+						has_estate = estate_nobles
+					}
+					add_estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_maratha
+					}
+					add_estate_loyalty = {
+						estate = estate_maratha
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_rajput
+					}
+					add_estate_loyalty = {
+						estate = estate_rajput
+						loyalty = 5
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = 1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = 1
+		}
 	}
 
 	on_destroyed = {
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = -1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = -1
+		}
 		if = {
 			limit = {
 				FROM = {
@@ -856,7 +1038,7 @@ fort_16th = {
 	influencing_fort = yes
 
 	ai_will_do = {
-		factor = 0.2
+		factor = 0.4
 		modifier = {
 			factor = 1000.0
 			has_building = fort_15th
@@ -897,32 +1079,7 @@ cathedral = {
 		local_tax_modifier = 0.6
 	}
 	on_built = {
-		if = {
-			limit = {
-				FROM = {
-					OR = {
-						religion = buddhism
-						religion = mahayana
-						religion = vajrayana
-					}
-					has_estate_privilege = estate_church_karma_temples
-				}
-			}
-			FROM = {
-				add_karma = 3
-			}
-		}
-		if = {
-			limit = {
-				FROM = {
-					religion = catholic
-					has_estate_privilege = estate_church_influence_temples
-				}
-			}
-			FROM = {
-				add_papal_influence = 3
-			}
-		}
+		on_province_tax_building_built_estate_privileges_effect = yes
 		add_development_from_upgrading_or_building = {
 			building = cathedral
 			obsolete_building = temple
@@ -930,38 +1087,67 @@ cathedral = {
 			value = 2
 			upgrade_value = 1
 		}
-	}
-	on_destroyed = {
+		if = {
+			limit = {
+				FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+			}
+			FROM = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 5
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = { has_government_attribute = temples_modifier }
+			}
+			add_province_modifier = {
+				name = gov_expanded_temple_rights_mod
+				duration = -1
+			}
+		}
 		if = {
 			limit = {
 				FROM = {
 					OR = {
-						religion = buddhism
-						religion = mahayana
-						religion = vajrayana
+						mission_completed = norway_mead
+						mission_completed = dan_mead_halls
 					}
-					has_estate_privilege = estate_church_karma_temples
 				}
 			}
-			FROM = {
-				add_karma = -3
-			}
+			add_base_production = 1
 		}
-		if = {
-			limit = {
-				FROM = {
-					religion = catholic
-					has_estate_privilege = estate_church_influence_temples
-				}
-			}
-			FROM = {
-				add_papal_influence = -3
-			}
-		}
+	}
+	on_destroyed = {
+		on_province_tax_building_destroyed_estate_privileges_effect = yes
 		remove_development_from_building = {
 			building = cathedral
 			type = tax
 			value = 3
+		}
+		if = {
+			limit = {
+				FROM = { has_government_attribute = on_church_built_clergy_loyalty }
+			}
+			FROM = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = -5
+				}
+			}
+		}
+		remove_province_modifier = gov_expanded_temple_rights_mod
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						mission_completed = norway_mead
+						mission_completed = dan_mead_halls
+					}
+				}
+			}
+			add_base_production = -1
 		}
 	}
 	on_obsolete = {
@@ -1048,11 +1234,10 @@ cathedral = {
 }
 
 university = {
-	cost = 350
+	cost = 300
 	time = 12
 	modifier = {
 		local_development_cost = -0.20
-		local_institution_spread = 0.1
 		allowed_num_of_buildings = 1
 	}
 
@@ -1220,6 +1405,10 @@ grand_shipyard = {
 			type = production
 			value = 2
 		}
+		if = {
+			limit = { has_province_modifier = sca_swe_danish_shipyard }
+			remove_province_modifier = sca_swe_danish_shipyard
+		}
 	}
 	on_obsolete = {
 	}
@@ -1302,7 +1491,7 @@ training_fields = {
 	modifier = {
 		local_manpower_modifier = 1
 	}
-	
+
 	on_built = {
 		if = {
 			limit = {
@@ -1436,9 +1625,75 @@ fort_17th = {
 	}
 
 	on_built = {
+		if = {
+			limit = {
+				FROM = { NOT = { mil_tech = 19 } has_government_attribute = on_fort_built_nobles_loyalty }
+			}
+			FROM = {
+				if = {
+					limit = {
+						has_estate = estate_nobles
+					}
+					add_estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_maratha
+					}
+					add_estate_loyalty = {
+						estate = estate_maratha
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_rajput
+					}
+					add_estate_loyalty = {
+						estate = estate_rajput
+						loyalty = 5
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = 1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = 1
+		}
 	}
 
 	on_destroyed = {
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = -1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = -1
+		}
 		if = {
 			limit = {
 				FROM = {
@@ -1452,7 +1707,7 @@ fort_17th = {
 	influencing_fort = yes
 
 	ai_will_do = {
-		factor = 0.3
+		factor = 0.6
 		modifier = {
 			factor = 1000.0
 			OR = {
@@ -1567,12 +1822,33 @@ counting_house = {
 			value = 2
 			upgrade_value = 1
 		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_2_AB
+				}
+			}
+			add_base_production = 1
+		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
 			building = counting_house
 			type = production
 			value = 2
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_2_AB
+				}
+				THIS = {
+					NOT = {
+						nationalism = 0
+					}
+				}
+			}
+			add_base_production = -1
 		}
 	}
 	on_obsolete = {
@@ -1666,7 +1942,7 @@ town_hall = {
 		local_state_maintenance_modifier = -0.5
 		local_autonomy = -0.2
 		local_governing_cost = -0.5
-		yearly_corruption = -0.01
+		allowed_num_of_buildings = 1
 	}
 
 	on_built = {
@@ -1677,6 +1953,14 @@ town_hall = {
 			value = 2
 			upgrade_value = 1
 		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_1_AB
+				}
+			}
+			add_nationalism = -2
+		}
 	}
 	on_destroyed = {
 		remove_development_from_building = {
@@ -1684,12 +1968,25 @@ town_hall = {
 			type = tax
 			value = 2
 		}
+		if = {
+			limit = {
+				FROM = {
+					has_reform = scottish_lawmaker_1_AB
+				}
+				THIS = {
+					NOT = {
+						nationalism = 0
+					}
+				}
+			}
+			add_nationalism = 2
+		}
 	}
 	on_obsolete = {
 	}
 
 	ai_will_do = {
-		factor = 10.0
+		factor = 25.0
 		modifier = {
 			factor = 0
 			FROM = { num_of_loans = 1 }
@@ -1762,7 +2059,7 @@ drydock = {
 	modifier = {
 		local_sailors_modifier = 1.0
 	}
-	
+
 	on_built = {
 		if = {
 			limit = {
@@ -1782,7 +2079,7 @@ drydock = {
 			upgrade_value = 1
 		}
 	}
-	
+
 	on_destroyed = {
 		if = {
 			limit = {
@@ -1893,7 +2190,7 @@ conscription_center = {
 		}
 		#BUILDINGS
 		modifier = {
-			factor = 10.0
+			factor = 100.0
 			xorme_has_production_buildings_trigger = yes
 		}
 		modifier = {
@@ -1913,7 +2210,7 @@ conscription_center = {
 fort_18th = {
 	cost = 800
 	time = 30
-	
+
 	build_trigger = {
 		if = {
 			limit = { FROM = { ai = yes } }
@@ -1936,23 +2233,82 @@ fort_18th = {
 	}
 
 	on_built = {
+		if = {
+			limit = {
+				FROM = { has_government_attribute = on_fort_built_nobles_loyalty }
+			}
+			FROM = {
+				if = {
+					limit = {
+						has_estate = estate_nobles
+					}
+					add_estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_maratha
+					}
+					add_estate_loyalty = {
+						estate = estate_maratha
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_rajput
+					}
+					add_estate_loyalty = {
+						estate = estate_rajput
+						loyalty = 5
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = 1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = 1
+		}
 	}
 
 	on_destroyed = {
 		if = {
 			limit = {
 				FROM = {
-					ai = yes
+					mission_completed = jsn_fortify_korea_2
 				}
 			}
-			FROM = { add_treasury = 400 }
+			add_base_manpower = -1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = -1
 		}
 	}
+
 	onmap = yes
 	influencing_fort = yes
 
 	ai_will_do = {
-		factor = 0.4
+		factor = 0.8
 		modifier = {
 			factor = 1000.0
 			OR = {
@@ -1964,52 +2320,97 @@ fort_18th = {
 	}
 }
 
+
 fort_19th = {
 	cost = 1000
 	time = 30
 
-	make_obsolete = fort_18th
 
-	build_trigger = {
-		if = {
-			limit = { FROM = { ai = yes } }
-			all_neighbor_province = {
-				NOT = {
-					OR = {
-						xorme_ai_is_building_fort_trigger = yes
-						xorme_ai_has_any_fort_trigger = yes
-						has_influencing_fort = yes
-					}
-				}
-			}
-		}
-	}
+	make_obsolete = fort_18th
 
 	modifier = {
 		fort_level = 9
 	}
 
 	on_built = {
-
+		if = {
+			limit = {
+				FROM = { has_government_attribute = on_fort_built_nobles_loyalty }
+			}
+			FROM = {
+				if = {
+					limit = {
+						has_estate = estate_nobles
+					}
+					add_estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_maratha
+					}
+					add_estate_loyalty = {
+						estate = estate_maratha
+						loyalty = 5
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_rajput
+					}
+					add_estate_loyalty = {
+						estate = estate_rajput
+						loyalty = 5
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					mission_completed = jsn_fortify_korea_2
+				}
+			}
+			add_base_manpower = 1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = 1
+		}
 	}
 
 	on_destroyed = {
 		if = {
 			limit = {
 				FROM = {
-					ai = yes
+					mission_completed = jsn_fortify_korea_2
 				}
 			}
-			FROM = { add_treasury = 500 }
+			add_base_manpower = -1
+		}
+		if = {
+			limit = {
+				FROM = {
+					has_country_modifier = eng_improved_infrastructure
+				}
+			}
+			add_base_manpower = -1
 		}
 	}
+
 
 	onmap = yes
 
 	influencing_fort = yes
 
 	ai_will_do = {
-		factor = 0.5
+		factor = 1 #Lots of logic in code instead, that multiplies with this value
 		modifier = {
 			factor = 1000.0
 			OR = {
@@ -2570,6 +2971,7 @@ ramparts = {
 	modifier = {
 		local_hostile_attrition = 1
 		local_defensiveness = 0.15
+		local_defender_dice_roll_bonus = 1
 	}
 	onmap = no
 	show_separate = yes # Means as a manufactory it will be shown according to the old way
@@ -2731,7 +3133,7 @@ state_house = {
 			}
 		}
 	}
-	
+
 	keep_trigger = {
 		NOT = {
 			area_for_scope_province = {
@@ -2750,10 +3152,15 @@ state_house = {
 	modifier = {
 		statewide_governing_cost = -0.2
 		min_local_autonomy = -5
+		local_governing_cost = -0.15
+		local_governing_cost_increase = -10
+		allowed_num_of_buildings = 1
 	}
 	bonus_modifier = {
 		statewide_governing_cost = -0.2
 		min_local_autonomy = -5
+		local_governing_cost = -0.15
+		local_governing_cost_increase = -10
 	}
 	onmap = no
 	show_separate = yes # Means as a manufactory it will be shown according to the old way
@@ -2775,7 +3182,7 @@ state_house = {
 	}
 
 	ai_will_do = {
-		factor = 25.0
+		factor = 35.0
 		modifier = {
 			factor = 0
 			FROM = { num_of_loans = 1 }
